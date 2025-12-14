@@ -4,6 +4,9 @@ on:
     branches:
       - master
       - main
+  pull_request:
+    branches:
+      - master
 
 jobs:
   on-push: # Job name
@@ -11,3 +14,9 @@ jobs:
     steps:
       - name: "Running on master or main branch" # Step name
         run: echo "This job runs on push to master or main branches" # Command to execute
+
+  on-pull-request: # Job name
+    runs-on: ubuntu-latest # Runner specification
+    steps:
+      - name: "Running on pull request to master" # Step name
+        run: echo "This job runs on pull request to master branch" # Command to execute
