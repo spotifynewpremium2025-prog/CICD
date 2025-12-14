@@ -1,0 +1,13 @@
+name: "multi events pipelines" # Workflow name
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  on-push: # Job name
+    runs-on: ubuntu-latest # Runner specification
+    steps:
+      - name: "Running on master or main branch" # Step name
+        run: echo "This job runs on push to master or main branches" # Command to execute

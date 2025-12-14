@@ -1,0 +1,19 @@
+name: "Hello World Workflow"
+
+# Trigger the workflow on push to master or production branches
+on:
+  push:
+    branches:
+      - master
+      - production
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print Hello World"
+        run: echo "Hello, World!"
+
+# Added step to print current date and time
+      - name: "Print Current Date and Time"
+        run: date
