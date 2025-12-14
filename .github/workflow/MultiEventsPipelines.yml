@@ -9,13 +9,15 @@ on:
       - master
 
 jobs:
-  on-push: # Job name
+  on-push: # Job 1
+    if: github.event_name == 'push' # Condition to run this job only on push events
     runs-on: ubuntu-latest # Runner specification
     steps:
       - name: "Running on master or main branch" # Step name
         run: echo "This job runs on push to master or main branches" # Command to execute
 
-  on-pull-request: # Job name
+  on-pull-request: # Job 2
+    if: github.event_name == 'pull_request' # Condition to run this job only on pull request events
     runs-on: ubuntu-latest # Runner specification
     steps:
       - name: "Running on pull request to master" # Step name
