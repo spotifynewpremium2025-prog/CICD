@@ -9,5 +9,5 @@ jobss:
   on-push: # Job name
     runs-on: ubuntu-latest # Runner specification
     steps:
-      - name: "Running on master or test branch" # Step name
-        run: echo "This job runs on push to master or test branches" # Command to execute
+      - name: "Running on master or main branch" # Step name
+        run: echo "This job runs on push to master or main branches" # Command to execute
