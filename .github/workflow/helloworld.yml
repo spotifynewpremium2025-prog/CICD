@@ -14,5 +14,6 @@ jobs:
       - name: "Print Hello World"
         run: echo "Hello, World!"
 
+# Added step to print current date and time
       - name: "Print Current Date and Time"
         run: date
