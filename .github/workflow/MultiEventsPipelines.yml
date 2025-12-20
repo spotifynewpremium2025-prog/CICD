@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - master
+    types:
+      - opened
+      - closed
+    Workflow_dispatch: # Allow manual triggering of the workflow
 
 jobs:
   on-push: # Job 1
@@ -22,3 +26,17 @@ jobs:
     steps:
       - name: "Running on pull request to master" # Step name
         run: echo "This job runs on pull request to master branch" # Command to execute
+
+  on-pull_request-opened: # Job 3
+    if: github.event_name == 'pull_request' && github.event.action == 'opened' # Condition to run this job only on pull request opened events
+    runs-on: ubuntu-latest # Runner specification
+    steps:
+      - name: "Running on pull request opened to master" # Step name
+        run: echo "This job runs when a pull request is opened to master branch" # Command to execute
+
+  on-pull_request-closed: # Job 4
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' # Condition to run this job only on pull request closed events
+    runs-on: ubuntu-latest # Runner specification
+    steps:
+      - name: "Running on pull request closed to master" # Step name
+        run: echo "This job runs when a pull request is closed to master branch" # Command to execute
